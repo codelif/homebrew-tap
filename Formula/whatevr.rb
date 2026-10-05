@@ -1,8 +1,8 @@
 class Whatevr < Formula
   desc "Native WhatsApp client (whatevrd daemon + whattui terminal frontend)"
   homepage "https://github.com/codelif/whatevr"
-  url "https://github.com/codelif/whatevr/releases/download/v0.9.0/whatevr-0.9.0.tar.gz"
-  sha256 "7c1efa17725b85ad1b61912b31c400927916a009f58db5d948f6eecf77a5b75d"
+  url "https://github.com/codelif/whatevr/releases/download/v0.9.1/whatevr-0.9.1.tar.gz"
+  sha256 "474c68807e30ea4fc72d832e13357124a69ac13d31f19cbccc075f9dfee737df"
   license "BSD-3-Clause"
   head "https://github.com/codelif/whatevr.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Whatevr < Formula
 
   def install
     system "just", "install", prefix
+    generate_completions_from_executable(bin/"whatevrd", "completion")
   end
 
   def caveats
